@@ -1,0 +1,19 @@
+.thumbs {
+    display: flex;
+    flex-flow: row wrap;
+  }
+.thumb {
+    border: 1px solid black;
+    /* visibility: hidden; /* will be displayed when the tab is selected */
+    position: relative; /* to support overlaid text buttons */
+}
+.thumb img {
+    width: 200px;
+    height: 200px;
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    /*padding-left: 16px;
+    padding-right: 16px;*/
+}
