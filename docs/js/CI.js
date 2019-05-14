@@ -14,7 +14,11 @@ function initnights(data) {
     $.each(merged, function(night, exposures) {
         console.log(night, exposures.length);
         var link = $("<a/>", {"class": "mdl-navigation__link", "href":"#", "html": night});
-        link.click(function() { loadnight(night) });
+        link.click(function() {
+            $(".mdl-navigation__link").removeClass("selected");
+            $(this).addClass("selected");
+            loadnight(night)
+        });
         link.appendTo(nightlist);
     });
 }

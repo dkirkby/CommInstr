@@ -14,6 +14,7 @@
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
     padding-top: 4px;
     padding-bottom: 4px;
-    /*padding-left: 16px;
-    padding-right: 16px;*/
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link.selected {
+    color: red;
 }
