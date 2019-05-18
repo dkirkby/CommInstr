@@ -11,8 +11,11 @@ var merged;
 function initnights(data) {
     merged = data;
     var nightlist = $("#nightlist");
-    $.each(merged, function(night, exposures) {
-        console.log(night, exposures.length);
+    // Use reverse lexical sort order.
+    nights = Object.keys(merged).sort().reverse();
+    $.each(nights, function(idx, night) {
+        var exposures = merged[night];
+        console.log(idx, 'night ', night, ' has ', exposures.length, ' exposures.');
         var link = $("<a/>", {"class": "mdl-navigation__link", "href":"#", "html": night});
         link.click(function() {
             $(".mdl-navigation__link").removeClass("selected");
