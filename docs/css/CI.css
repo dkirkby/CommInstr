@@ -18,3 +18,9 @@
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link.selected {
     color: red;
 }
+.summary {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    background: lightgray;
+}

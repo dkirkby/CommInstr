@@ -15,7 +15,7 @@ function initnights(data) {
     nights = Object.keys(merged).sort().reverse();
     $.each(nights, function(idx, night) {
         var exposures = merged[night];
-        console.log(idx, 'night ', night, ' has ', exposures.length, ' exposures.');
+        console.log("night " + night + " has " + exposures.length + " exposures.");
         var link = $("<a/>", {"class": "mdl-navigation__link", "href":"#", "html": night});
         link.click(function() {
             $(".mdl-navigation__link").removeClass("selected");
@@ -31,6 +31,10 @@ function loadnight(night) {
     var parent = $("#content");
     parent.empty();
     parent.scrollTop();
+    // Add a header with a link to the night summary.
+    var summary = "http://desi-www.kpno.noao.edu:8090/nightsum/nightsum-" +
+        night.substr(0, 4) + "-" + night.substr(4, 2) + "-" + night.substr(6, 2) + "/nightsum.html";
+    parent.append($("<div>").addClass("summary").html("<a href='" + summary + "' target='_blank'>Night Summary</a>"));
     // Create image placeholders for this night.
     var exposures = merged[night];
     console.log("Loading " + night + " with " + exposures.length + " exposures...");
