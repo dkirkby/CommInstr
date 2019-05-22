@@ -8,7 +8,7 @@ import CI.data
 import CI.display
 
 
-def main(*args):
+def main():
     # Lookup the science exposures for this night.
     night = int(sys.argv[1])
     db = CI.db.DB()
@@ -27,8 +27,8 @@ def main(*args):
             CI.display.thumbnail(*CI.data.calibrate(hdus), nbins=0, save=save)
             meta.append(dict(EXPID=tag, RA=hdr['SKYRA'], DEC=hdr['SKYDEC']))
         except Exception as e:
-            print(f'Failed for EXPID {expid}: {e}')
-            raise e
+            print(f'Failed for EXPID {tag}: {e}')
+            continue
     # Save the night metadata.
     with open(OUT / f'{night}.yaml', 'w') as f:
         yaml.dump(meta, f)
